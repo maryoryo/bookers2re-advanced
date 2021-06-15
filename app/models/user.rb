@@ -25,6 +25,18 @@ class User < ApplicationRecord
     followings.include?(user)
   end
   
+  def self.search_for(content,method)
+    if method == 'prefect'
+      User.where(name: content)
+    elsif method == 'forword'
+      User.where('name LIKE ?', content + '%')
+    elsif method == 'backword'
+      User.where('name LIKE ?', '%' + content)
+    else
+      User.where('name LIKE ?', '%' + content + '%')
+    end
+  end
+  
   attachment :profile_image, destroy: false
 
   validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true

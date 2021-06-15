@@ -13,14 +13,14 @@ class Book < ApplicationRecord
 	validates :body, presence: true, length: {maximum: 200}
 	
 	def self.search_for(content,method)
-		if mehod == 'prefect'
+		if method == 'prefect'
 			Book.where(title: content)
 		elsif method == 'forword'
 			Book.where('title LIKE ?', content+'%')
 		elsif method == 'backword'
 			Book.where('title LIKE ?', '%'+content)
 		else
-			BOOk.where('titke LIKE ?', '%'+content+'%')
+			Book.where('titke LIKE ?', '%'+content+'%')
 		end
 	end
 
