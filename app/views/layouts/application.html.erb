@@ -13,10 +13,6 @@
     <%= render 'layouts/header' %>
       <main>
         
-      <div class="logo_fadein">
-        <p><%= image_tag "yt_logo.png", alt:"Nagano Cake", width: 250 %>
-      </div>
-        
         <% if user_signed_in? %>
           <%= render 'layouts/search' %>
         <% end %>
@@ -26,5 +22,6 @@
         <%= yield %>
       </main>
     <%= render 'layouts/footer' %>
+  
   </body>
 </html>
