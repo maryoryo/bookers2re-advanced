@@ -4,15 +4,15 @@ class GroupsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
   
   def index
-    
+    @book = Book.new
+    @group = Group.all
   end
 
   def show
   end
 
   def new
-    @book = Book.new
-    @group = Group.find(params[:id])
+    @group = Group.new
   end
 
   def edit
